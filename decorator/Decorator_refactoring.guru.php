@@ -24,7 +24,7 @@ class TextInput implements InputFormat
 }
 
 /**
- * The base Decorator class doesn't contain any real filtering or formatting
+ * The base decorator class doesn't contain any real filtering or formatting
  * logic. Its main purpose is to implement the basic decoration infrastructure:
  * a field for storing a wrapped component or another decorator and the basic
  * formatting method that delegates the work to the wrapped object. The real
@@ -43,7 +43,7 @@ class TextFormat implements InputFormat
     }
 
     /**
-     * Decorator delegates all work to a wrapped component.
+     * decorator delegates all work to a wrapped component.
      */
     public function formatText(string $text): string
     {
@@ -52,7 +52,7 @@ class TextFormat implements InputFormat
 }
 
 /**
- * This Concrete Decorator strips out all HTML tags from the given text.
+ * This Concrete decorator strips out all HTML tags from the given text.
  */
 class PlainTextFilter extends TextFormat
 {
@@ -64,7 +64,7 @@ class PlainTextFilter extends TextFormat
 }
 
 /**
- * This Concrete Decorator strips only dangerous HTML tags and attributes that
+ * This Concrete decorator strips only dangerous HTML tags and attributes that
  * may lead to an XSS vulnerability.
  */
 class DangerousHTMLTagsFilter extends TextFormat
@@ -98,7 +98,7 @@ class DangerousHTMLTagsFilter extends TextFormat
 }
 
 /**
- * This Concrete Decorator provides a rudimentary Markdown → HTML conversion.
+ * This Concrete decorator provides a rudimentary Markdown → HTML conversion.
  */
 class MarkdownFormat extends TextFormat
 {
@@ -180,7 +180,7 @@ echo "\n\n\n";
 
 
 /**
- * Decorator allows stacking multiple input formats to get fine-grained control
+ * decorator allows stacking multiple input formats to get fine-grained control
  * over the rendered content.
  */
 $dangerousForumPost = <<<HERE
